@@ -1,0 +1,119 @@
+/* 기본 설정 - 완벽한 모노톤 배경 */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #000000;
+    overflow-x: hidden;
+}
+
+/* 전체 거대 무대 레이아웃 */
+.giant-stage {
+    max-width: 1600px; /* 더 넓은 화면 대응 */
+    margin: 0 auto;
+    padding: 180px 50px 100px;
+    text-align: center;
+}
+
+/* 제목 디자인 최종 수정 (Hyper-Modern Headline) */
+.headline-header {
+    margin-bottom: 120px; /* 사진과 간격 확보 */
+    position: relative;
+    display: inline-block;
+}
+
+.headline-title {
+    font-family: 'Montserrat', sans-serif; /* 요구사항: 모던하고 강력한 서체 적용 */
+    font-size: 50px; /* 크기 키움 */
+    font-weight: 900; /* 극강의 굵기 */
+    letter-spacing: 15px; /* 모던함의 핵심: 글자 간격 매우 넓히기 */
+    margin: 0;
+    color: #000000;
+    padding-bottom: 15px;
+    border-bottom: 5px solid #ffe57b; /* 제목 밑에 포인트 컬러 선 */
+}
+
+/* 제목 옆 이모지 스타일링 */
+.headline-title::before {
+    font-size: 35px;
+    margin-right: 15px;
+    vertical-align: baseline;
+}
+
+/* 돌아가기 링크 - 미니멀 디자인 (최상단 좌측 고정) */
+.back-to-home {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000000; /* 블랙 컬러 */
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    padding: 10px 15px;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+.back-to-home .arrow {
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.back-to-home:hover {
+    background-color: #ffe57b; /* 호버 시 옐로우로 채우기 */
+    border-color: #ffe57b;
+}
+
+.back-to-home:hover .arrow {
+    transform: translateX(-5px); /* 화살표 움직임 */
+}
+
+/* 자이언트 갤러리 섹션 */
+.giant-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* 사진 프레임 - 화면을 가득 채우는 울트라 사이즈 */
+.giant-photo-frame {
+    position: relative;
+    z-index: 1;
+    /* 기존 1000px ➔ 1400px로 파격적 확대 */
+    width: 1400px;
+    max-width: 95vw; /* 화면 양옆 여백을 최소화하여 꽉 차게 허용 */
+    height: auto;
+    background-color: #ffffff;
+    padding: 25px; /* 프레임 내부 여백도 더 넓게 */
+    border: 4px solid #000000; /* 존재감을 위해 테두리 두께 4px로 강화 */
+    /* 거대해진 크기에 맞춘 솔리드 섀도우 극대화 */
+    box-shadow: 60px 60px 0px #ffe57b;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* 사진 자체 스타일 및 기본 효과 */
+.resume-portfolio-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    /* 블러 효과를 살짝 더 주어 마우스를 올렸을 때의 쾌감 극대화 */
+    filter: grayscale(100%) blur(2px); 
+    transition: all 0.6s ease;
+}
+
+/* 사진 호버 효과 (Dramatic Interaction) */
+.giant-photo-frame:hover {
+    box-shadow: 40px 40px 0px #ffe57b;
+    transform: translateY(-20px); /* 더 높고 묵직하게 위로 떠오름 */
+}
+
+.giant-photo-frame:hover .resume-portfolio-photo {
+    filter: grayscale(0%) blur(0px);
+}

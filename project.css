@@ -1,0 +1,292 @@
+/* 디자인 가이드 준수: 컬러 파레트 정의 */
+:root {
+    --main-color: #000000;
+    --point-color: #ffe57b;
+    --gray-color: #b4b4b4;
+    --text-color: #444; /* image_0.png Gray 컬러 `#b4b4b4`에 가깝게 조정 */
+}
+
+/* 기본 설정 - 디자인 가이드 준수 (폰트) */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    font-family: 'Noto Sans KR', sans-serif; /* 한글 폰트 */
+    color: var(--main-color);
+    overflow-x: hidden;
+}
+
+/* 전체 울트라 무대 레이아웃 - 기존 간격 넓히기 유지 */
+.project-stage {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 180px 50px 100px;
+    text-align: center;
+}
+
+/* 제목 디자인 최종 수정: Playfair Display 적용, 세련된 하단 선 */
+.headline-header {
+    margin-bottom: 120px;
+    position: relative;
+    display: inline-block;
+}
+
+/* 제목 디자인 복구: resume.html의 Hyper-Modern Montserrat 적용 */
+.headline-title {
+    font-family: 'Montserrat', sans-serif; /* 압도적인 굵기의 산세리프 폰트 */
+    font-size: 50px;
+    font-weight: 900; /* 극강의 굵기 */
+    letter-spacing: 15px; /* 모던함의 핵심: 글자 간격 매우 넓히기 */
+    margin: 0;
+    color: var(--main-color);
+    padding-bottom: 15px;
+    border-bottom: 5px solid var(--point-color); /* 포인트 컬러 선 굵기 복구 */
+}
+
+/* 제목 옆 이모지 스타일링 */
+.headline-title::before {
+    font-size: 35px;
+    margin-right: 15px;
+    vertical-align: baseline;
+}
+
+/* 'BACK' 버튼 (최상단 좌측 고정) - 기존 디자인 유지 */
+.back-to-home {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--main-color);
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    padding: 10px 15px;
+    border: 1px solid var(--main-color);
+    background-color: #ffffff;
+}
+
+.back-to-home .arrow {
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.back-to-home:hover {
+    background-color: var(--point-color); /* 호버 시 포인트 컬러로 채우기 */
+    border-color: var(--point-color);
+}
+
+.back-to-home:hover .arrow {
+    transform: translateX(-5px);
+}
+
+/* 프로젝트 갤러리 섹션 */
+.project-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* 레이아웃 수정: 1열 세로 배치로 변경하여 화면 전체 너비를 사진에 집중 */
+.project-grid {
+    display: flex;
+    flex-direction: column; /* 한 줄에 하나씩 크게 배치 */
+    gap: 180px; /* 위아래 프로젝트 간격을 아주 넓고 시원하게 */
+    width: 100%;
+}
+
+/* 개별 프로젝트 요소 스타일링 (유지) */
+.project-item {
+    display: flex;
+    gap: 50px; /* 사진과 텍스트 사이 간격 넓힘 */
+    align-items: center; /* 텍스트가 사진의 세로 중앙에 오도록 맞춤 */
+    text-align: left;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+/* 엇갈린 배치 (유지) */
+.project-item-reverse {
+    flex-direction: row-reverse;
+}
+
+/* 호버 시 인터랙션 (유지) */
+.project-item:hover {
+    transform: translateY(-15px);
+}
+
+/* 핵심! 이미지와 텍스트 비율 변경 (사진 크기를 압도적으로 키움) */
+.project-image-box {
+    flex: 2.5; /* 텍스트 영역보다 사진이 2.5배 더 거대해짐 */
+}
+
+.project-text-box {
+    flex: 1; /* 텍스트는 간결하게 한쪽으로 밀어줌 */
+    padding: 0 20px; 
+}
+
+/* 레이아웃 컨셉 준수: 이미지 플레이스홀더 디자인 및 인터랙션 통합 */
+.project-placeholder {
+    background-color: var(--gray-color); /* image_0.png Gray 컬러 */
+    aspect-ratio: 4/3; /* image_1.png 비율 */
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border: 2px solid var(--main-color);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* 기존 Grayscale -> Color 전환 효과 및 Blur 유지 */
+.project-portfolio-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) blur(2px); 
+    transition: all 0.6s ease;
+}
+
+/* 호버 시 Grayscale/Blur 제거 및 포인트 컬러 그림자 효과 극대화 */
+.project-item:hover .project-portfolio-photo {
+    filter: grayscale(0%) blur(0px);
+}
+
+.project-item:hover .project-placeholder {
+    box-shadow: 20px 20px 0px var(--point-color); /* 포인트 컬러 솔리드 섀도우 효과 극대화 */
+}
+
+/* 플레이스홀더 내 "프로젝트 진행 사진" 텍스트 스타일링 (image_1.png) */
+.project-placeholder p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #FFF; /* Gray 배경 위에 White 텍스트 */
+    pointer-events: none; /* 텍스트가 마우스 이벤트를 방해하지 않게 설정 */
+    text-align: center;
+}
+
+/* 개별 프로젝트 제목 폰트 수정: Montserrat 폰트 적용 */
+.project-title {
+    font-family: 'Montserrat', sans-serif; /* 메인 제목과 동일한 폰트로 변경 */
+    font-size: 32px; /* Montserrat 두께에 맞춰 시원하게 조정 */
+    font-weight: 900; /* 극강의 굵기로 존재감 강조 */
+    letter-spacing: 4px; /* 개별 제목 레이아웃에 어울리는 세련된 자간 */
+    color: var(--main-color);
+    margin: 0 0 15px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid var(--point-color); /* 기획서 포인트 컬러 하단 선 */
+    display: inline-block; /* 선이 제목 길이만큼만 나오게 설정 */
+}
+
+.project-content {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* 결과물 보기 버튼 스타일 (기획서의 모던/세련됨 유지) */
+.view-result-btn {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--main-color);
+    background-color: transparent;
+    border: 2px solid var(--main-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.view-result-btn span {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+/* 버튼 마우스 호버 효과 */
+.view-result-btn:hover {
+    background-color: var(--point-color);
+    border-color: var(--point-color);
+    transform: translateY(-3px); /* 살짝 위로 뜨는 효과 */
+}
+
+.view-result-btn:hover span {
+    transform: translateX(5px); /* 재생 아이콘이 오른쪽으로 밀림 */
+}
+
+/* 영상 팝업(모달) 전체 배경 */
+.video-modal-overlay {
+    display: none; /* 평소에는 숨김 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* 반투명 검은색 배경 */
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 영상 팝업 콘텐츠 영역 */
+/* 영상 팝업 콘텐츠 영역 (디자인 모두 제거, 오직 영상만 돋보이게) */
+.video-modal-content {
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+    background: transparent; /* 배경색 투명하게 */
+    border: none; /* 노란색 테두리 제거 */
+    box-shadow: none; /* 그림자 제거 */
+}
+
+
+/* 닫기(X) 버튼 - 영상과 겹치지 않도록 화면 최상단 우측에 완전히 분리 배치 */
+.close-video-btn {
+    position: fixed; /* viewport 기준 고정 배치 */
+    top: 30px; /* 화면 맨 위에서 30px 내려옴 */
+    right: 40px; /* 화면 맨 오른쪽에서 40px 들어옴 */
+    color: #ffffff; /* 하얀색 색상 유지 */
+    font-size: 50px; /* 크기를 더 키워 클릭하기 쉽게 만듦 */
+    font-weight: 200; /* 모던하고 얇은 느낌의 X 표시 */
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease; /* 호버 효과 */
+    z-index: 10001; /* 영상 팝업보다 더 위에 오도록 설정 */
+    line-height: 1; /* 텍스트 정렬 */
+}
+
+/* 닫기 버튼 호버 효과 (유지) */
+.close-video-btn:hover {
+    color: var(--point-color); /* 노란색으로 변경 */
+    transform: rotate(90deg); /* 90도 회전 애니메이션 추가 */
+}
+
+/* 유튜브 16:9 비율 유지를 위한 래퍼 */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 화면 비율 */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
